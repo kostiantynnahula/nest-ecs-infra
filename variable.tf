@@ -3,7 +3,12 @@ variable "region" {
   default     = "eu-west-1"
 }
 
-variable "db_password" {
-  description = "The password for the database."
-  default     = "V8DzgULEhDUB"
+variable "organization_db_name" {
+  description = "The name of the organization database."
+  default     = "organization"
+}
+
+variable "patient_db_name" {
+  description = "The name of the patient database."
+  default     = "patient"
 }
