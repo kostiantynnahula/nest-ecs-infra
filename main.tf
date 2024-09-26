@@ -39,22 +39,7 @@ resource "aws_security_group" "allow_db" {
   }
 }
 
-resource "aws_default_subnet" "db_subnet_a" {
-  availability_zone = "eu-west-1a"
-  tags = {
-    Name = "Default subnet for eu-west-1a"
-  }
-}
 
-resource "aws_default_subnet" "db_subnet_b" {
-  availability_zone = "eu-west-1b"
-
-  tags = {
-    Name = "Default subnet for eu-west-1b"
-  }
-}
-
-resource "aws_db_subnet_group" "db_subnet_group" {
-  name       = "db_subnet_group_nest_lambda"
-  subnet_ids = [aws_default_subnet.db_subnet_a.id, aws_default_subnet.db_subnet_b.id]
+resource "aws_ecs_cluster" "main" {
+  name = "nest-ecs-microservice-cluster"
 }
